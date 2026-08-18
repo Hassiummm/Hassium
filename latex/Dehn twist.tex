@@ -1,0 +1,45 @@
+\documentclass[10pt]{article}
+\usepackage{tikz,tabularx}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{center}
+    \begin{tabular}{ccc}
+        \begin{tikzpicture}
+            \def\rx{0.384}
+            \def\ry{0.896}
+            \def\length{3.84}
+            \def\xred{1.792}
+            \draw[thick] (0,\ry) -- (\length,\ry);
+            \draw[thick] (0,-\ry) -- (\length,-\ry);
+            \draw[thick] (0,0) ellipse ({\rx} and {\ry});
+            \draw[thick, dashed] (\length,\ry) arc (90:270:{\rx} and {\ry});
+            \draw[thick] (\length,-\ry) arc (-90:90:{\rx} and {\ry});
+            \draw[dashed] (\xred,\ry) arc (90:270:{\rx} and {\ry});
+            \draw (\xred,-\ry) arc (-90:90:{\rx} and {\ry});
+            \draw[thick] (\rx, 0) -- (\length + \rx, 0);
+            \fill (2.176, 0) circle (1.5pt); % 0.384 + 1.792 = 2.176
+        \end{tikzpicture}
+        &
+        \tikz[baseline=-0.896cm] \draw[-{Stealth[scale=1.2]}, thick] (0,0) -- (1.2,0);
+        &
+        \begin{tikzpicture}
+            \def\rx{0.384}
+            \def\ry{0.896}
+            \def\length{3.84}
+            \def\xred{1.792}
+            \draw[thick] (0,\ry) -- (\length,\ry);
+            \draw[thick] (0,-\ry) -- (\length,-\ry);
+            \draw[thick] (0,0) ellipse ({\rx} and {\ry});
+            \draw[thick, dashed] (\length,\ry) arc (90:270:{\rx} and {\ry});
+            \draw[thick] (\length,-\ry) arc (-90:90:{\rx} and {\ry});
+            \draw[dashed] (\xred,\ry) arc (90:270:{\rx} and {\ry});
+            \draw (\xred,-\ry) arc (-90:90:{\rx} and {\ry});
+            \draw[thick] (0.384, 0) .. controls (0.384, 0.448) and (0.640, \ry) .. (0.896, \ry);
+            \draw[thick, dashed] (0.896, \ry) .. controls (1.152, \ry) and (1.408, 0.448) .. (1.408, 0);
+            \draw[thick, dashed] (1.408, 0) .. controls (1.408, -0.448) and (2.112, -\ry) .. (2.816, -\ry);
+            \draw[thick] (2.816, -\ry) .. controls (3.520, -\ry) and (4.224, -0.448) .. (4.224, 0);
+            \fill (1.408, 0) circle (1.5pt);
+        \end{tikzpicture}
+    \end{tabular}
+\end{center}
+\end{document}
